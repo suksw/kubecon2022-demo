@@ -1,9 +1,10 @@
 import ballerina/graphql;
 
-// The API is exposed at `http://host:4000/task/query`.
+// The API is exposed at `http://localhost:4000/task/query`.
 service /task/query on new graphql:Listener(4000) {
 
-    // This resource can be queried using the `{ groups }`.
+    # Returns all groups including the task list per each group
+    # + return - All groups
     resource isolated function get groups() returns Group[] {
         table<Task> key(id) tasksTable = table [];
 

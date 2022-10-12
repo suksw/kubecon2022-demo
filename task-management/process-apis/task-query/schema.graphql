@@ -1,0 +1,19 @@
+type Query {
+  # Get all groups including tasks
+  groups: [Group!]
+}
+
+type Group {
+    id Int!
+    name String!
+    tasks [Task!]
+}
+
+type Task {
+  groupId Int!
+  id Int!
+  title String
+  status String
+  createdAt String
+  updatedAt String
+}

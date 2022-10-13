@@ -38,25 +38,6 @@ public isolated function changeTaskStatus(string taskId, TaskidChangestatusBody 
   };
 }
 
-// ------------ Groups
-
-public isolated function createNewGroup(GroupName groupName) returns CreatedGroup {
-  return {
-    body: {
-      id: 1,
-      name: <string>groupName.name
-    }
-  };
-}
-
-public isolated function updateGroup(string groupId, GroupName groupName) returns Group|error {
-  int id = check int:fromString(groupId);
-  return {
-    id,
-    name: <string> groupName.name
-  };
-}
-
 // ------------ Archive
 
 public isolated function archiveTask(ArchiveTasksBody payload) returns http:Ok {

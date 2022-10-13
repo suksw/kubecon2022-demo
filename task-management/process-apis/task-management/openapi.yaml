@@ -82,21 +82,13 @@ paths:
       operationId: post-tasks-taskId-change-group
       responses:
         '200':
-          description: OK
+          $ref: '#/components/responses/Task'
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  groupId:
-                    type: integer
-                x-examples:
-                  Example 1:
-                    groupId: 1
-              examples:
-                example-1:
-                  value:
-                    groupId: 0
+                $ref: '#/components/schemas/Message'
       parameters: []
       requestBody:
         content:
@@ -127,17 +119,13 @@ paths:
       operationId: post-tasks-taskId-change-status
       responses:
         '200':
-          description: OK
+          $ref: '#/components/responses/Task'
+        '409':
+          description: Conflict
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                x-examples:
-                  Example 1:
-                    status: in-progress
+                $ref: '#/components/schemas/Message'
       parameters: []
       requestBody:
         content:
@@ -274,6 +262,12 @@ components:
         Example 1:
           id: 1
           name: Urgent and Important
+    Message:
+      title: Message
+      type: object
+      properties:
+        message:
+          type: string
   responses:
     Task:
       description: Example response
@@ -287,5 +281,11 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Group'
+    Message:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Message'
   requestBodies: {}
   parameters: {}

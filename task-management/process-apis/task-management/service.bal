@@ -19,9 +19,9 @@ configurable string accessToken = ?;
 // Accessed via internal URLs given in Choreo DevOps Portal.
 final GroupClient groupClient = check new ({}, groupApiUrl);
 final TaskClient taskClient = check new ({}, taskApiUrl);
+final ArchiveClient archiveClient = check new ({}, archiveApiUrl);
 
 // Accessed via public URLs using an access token generated from Choreo Developer Portal.
-final ArchiveClient archiveClient = check new ({}, archiveApiUrl);
 final NotificationClient notificationClient = check new ({auth: {token: accessToken}}, notificationUrl);
 
 service / on new http:Listener(9090) {

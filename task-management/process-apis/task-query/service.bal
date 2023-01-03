@@ -11,8 +11,9 @@ configurable string taskApiUrl = ?;
 configurable string archiveApiUrl = ?;
 configurable string accessToken = ?;
 
-final entity:GroupClient groupClient = check new ({auth: {token: accessToken}}, groupApiUrl);
-final entity:TaskClient taskClient = check new ({auth: {token: accessToken}}, taskApiUrl);
+// Accessed via internal URLs given in Choreo DevOps Portal.
+final entity:GroupClient groupClient = check new ({}, groupApiUrl);
+final entity:TaskClient taskClient = check new ({}, taskApiUrl);
 final entity:ArchiveClient archiveClient = check new ({}, archiveApiUrl);
 
 @graphql:ServiceConfig {

@@ -148,7 +148,7 @@ public type MainNotificationrequest record {
     string userEmail;
 };
 
-// --------------------------Used by the Archive client
+// -------------------------- Used by the Archive client
 
 public type ArchivedTaskArr ArchivedTask[];
 

@@ -225,8 +225,8 @@ service / on new http:Listener(9090) {
 
     # Archive task.
     #
-    # + payload - Task id of the task to be archived. Ex: {"taskId":123}
-    # + return - Ok 200
+    # + payload - Task id of the task to be archived. Ex: { "taskId" : 123 }
+    # + return - Info about the archived task after archiving. 
     resource function post archive/tasks(@http:Payload ArchiveTasksBody payload, http:Request request) returns InlineResponse2002|error {
         string userId = check extractUser(request);
         int taskId = payload.taskId;
